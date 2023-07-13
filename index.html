@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Khan - portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -14,17 +15,21 @@
     <div class="container">
         <nav>
             <img class="logo" src="image/logo.jpeg" alt="logo">
-       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact</a></li>
+       <ul id="sidemenu">
+        <li><a href="#header">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skill-section">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <i class="fas fa-times" onclick="closemenu()"></i>
        </ul>
+       <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <p>Frontend Developer</p>
-            <h1>Hi, I'm <span>Sahil Khan</span> <br> From Delhi</h1>
+           <h1>Hi, I'm  <br><span>Sahil Khan</span> <span id="place-info"> From Delhi</span></h1>
+          <h3> <span id="text"></span></h3>
+          <div><a href="#contact" class="btn btn2">Contact me</a>
+            <!-- <a href="#" download class="btn btn2">Download CV</a></div> -->
         </div>
     </div>
  </div> 
@@ -71,8 +76,29 @@
       </div>
  </div>
    <!-- ----about---section----end -->
+   <!-- ------skillls section -----  -->
+   <div id="skill-section">
+   <div class="container">
+      <h3 class="sub-titles ">My Skills</h3>
+      <div class="skills">
+        <div class="skills__skill">HTML</div>
+        <div class="skills__skill">CSS</div>
+        <div class="skills__skill">JavaScript</div>
+        <div class="skills__skill">React</div>
+        <div class="skills__skill">Redux</div>
+        
+        <div class="skills__skill">GIT</div>
+        <div class="skills__skill">Github</div>
+        <div class="skills__skill">Tailwind CSS</div>
+        <div class="skills__skill">Bootstrap</div>
+      
+        <div class="skills__skill">VSCODE</div>
+       
+      </div>
+    </div>
+   </div>
     <!-- ------portfolio ------- -->
-    <div id="porfolio">
+    <div id="portfolio">
       <div class="container">
          <h1>My Portfolio</h1>
          <div class="work-list">
@@ -81,14 +107,14 @@
                <div class="layer">
                   <h3>Tasty bites</h3>
                   <p>Tasty Bites Food is a personal project that I developed to showcase my skills in web development and UI/UX design. It is a responsive and user-friendly built from scratch website</p>
-               <a class="#" href=""><i class="fa fa-external-link"></i></a>
+               <a class="" href="https://tastybitesbysahilkhan.netlify.app/" target="_blank"><i class="fa fa-external-link"></i></a>
                </div>
             </div>
             <div class="work">
                <img class="project"   src="image/project-2.png" alt="project-1">
                <div class="layer">
                   <h3>Youtube Clone</h3>
-                  <p>Youtube Clone is a personal project that I developed to showcase my skills using Youtube Live API's, search, live chat etx It is a responsive and user-friendly built from scratch website</p>
+                  <p>Youtube Clone is a personal project that is in progress phase  showcase my skills using Youtube Live API's, search, live chat etx It is a responsive and user-friendly built from scratch website</p>
                <a class="#" href=""><i class="fa fa-external-link"></i></a>
                </div>
             </div>
@@ -127,7 +153,10 @@
                   <input type="text" name="name" placeholder="Your Name" required>
                   <input type="email" name="email" placeholder="Your Email" required>
                   <textarea name="Message" id=""  rows="6" placeholder="Your Message"></textarea>
-                 <button class="btn btn2" type="submit">Submit</button> </form>
+                 <button class="btn btn2" type="submit"  onclick="displayMessage()">Submit</button> </form>
+                 <div id="thank-you-message" style="display: none;">
+                  <h2>Thank you for submitting!, We'll contact you soon</h2>
+                </div>
             </div>
          </div>
       </div>
@@ -135,6 +164,32 @@
          Copyright © 2023, Made with <i class="fas fa-heart"> </i> by Sahil Khan 
       </p></div>
     </div>
-   
+   <script>
+      var sidemenu = document.getElementById("sidemenu")
+      function openmenu(){
+         sidemenu.style.right ="0"
+      }
+      function closemenu(){
+         sidemenu.style.right ="-200px"
+      }
+      function displayMessage() {
+      document.getElementById("thank-you-message").style.display = "block";
+      event.preventDefault();
+      setTimeout(function() {
+        location.reload();
+      }, 3000);
+    }
+
+    const typed = new Typed("#text",{
+      strings: ["React Developer","Frontend Developer", " Web Coder"],
+      typeSpeed: 100,
+      backSpeed: 100,
+      backDelay: 1000,
+      loop: true,
+    });
+
+    
+   </script>
+   <script src="main.js"></script>
 </body>
 </html>
