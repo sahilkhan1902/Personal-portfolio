@@ -346,6 +346,9 @@ nav ul .fas{
 #about{
   padding: 20px 0;
 }
+.about-col-1 img {
+  margin-top: 230px;
+}
 .about-col-1, .about-col-2{
   flex-basis: 100%;
 }
@@ -359,14 +362,15 @@ nav ul .fas{
   flex-basis: 100%;
 }
 #text{
-  font-size: 35px;
+  color: #ff004f;
+  font-size: 31px;
 }
 #place-info{position: fixed;
   visibility: hidden;
 }
 .header-text h1 span {
   color: #00aeff;
-  font-size: 40px;
+  font-size: 32px;
 }
 .skills__skill {
   padding: 0.5rem 0.2rem;

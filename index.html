@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Khan - portfolio</title>
+    <link rel="shortcut icon" href="image/favicon.jpg" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -140,18 +141,18 @@
             <div class="contact-left">
                <h1 class="sub-title">Contact Me</h1>
                <p><i class="fas fa-envelope"></i>Email I'D:- sahilkhan2002786@gmail.com</p>
-               <p><i class="fa-solid fa-phone fa-beat"></i>Contact no:- +91 9315157427</p>
+               <p><i class="fa fa-phone "></i>Contact no:- +91 9315157427</p>
                <div class="social-icons">
                   <a href="https://www.linkedin.com/in/sahilkhan1902/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                  <a href="https://github.com/sahilkhan1902" target="_blank"><i class="fas fa-envelope"></i></a>
-                  <a href="mailto:sahilkhan2002786@gmail.com" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="mailto:sahilkhan2002786@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                  <a href="https://github.com/sahilkhan1902" target="_blank"><i class="fab fa-github"></i></a>
                </div>
                <a href="#" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-               <form action="">
-                  <input type="text" name="name" placeholder="Your Name" required>
-                  <input type="email" name="email" placeholder="Your Email" required>
+               <form name="submit-to-google-sheet" action="">
+                  <input type="text" name="Name" placeholder="Your Name" required>
+                  <input type="email" name="Email" placeholder="Your Email" required>
                   <textarea name="Message" id=""  rows="6" placeholder="Your Message"></textarea>
                  <button class="btn btn2" type="submit"  onclick="displayMessage()">Submit</button> </form>
                  <div id="thank-you-message" style="display: none;">
@@ -190,6 +191,17 @@
 
     
    </script>
+   <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwe_YkLeGmOGa1oifrJFzlrK7OlGTx2xqz8sXMlbCYSn870nNPedyGBAleJjv_RNy05/exec'
+      const form = document.forms['submit-to-google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
    <script src="main.js"></script>
 </body>
 </html>
